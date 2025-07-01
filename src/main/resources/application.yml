@@ -1,0 +1,13 @@
+
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://ankitatfreelancing:yCIOd5cpk78gZmu1@cluster0.xo8zkuu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      database: systemdb
+      auto-index-creation: true
+
+server:
+  port: 8081
+  servlet:
+    context-path: /journal
