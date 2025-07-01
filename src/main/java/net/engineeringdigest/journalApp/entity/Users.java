@@ -16,6 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Data
 
+
 public class Users {
     @Id
     private ObjectId id;
@@ -23,6 +24,8 @@ public class Users {
     @Indexed(unique = true)
     @NonNull
     private String username;
+    private String email;
+    private boolean SentimentAnalysis;
     @NonNull
     private String password;
 

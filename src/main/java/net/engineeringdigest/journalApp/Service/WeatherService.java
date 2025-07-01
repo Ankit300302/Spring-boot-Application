@@ -2,6 +2,7 @@ package net.engineeringdigest.journalApp.Service;
 
 import net.engineeringdigest.journalApp.apiRequest.WeatherResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -13,7 +14,8 @@ import java.nio.charset.StandardCharsets;
 @Component
 public class WeatherService {
 
-    private static final String apikey = "6c39c3644815cd20bacd61c9bd270889";
+    @Value("${weather.api.key}")
+    private String apikey;
     private static final String API_TEMPLATE = "http://api.weatherstack.com/current?access_key=%s&query=%s";
 
     @Autowired
