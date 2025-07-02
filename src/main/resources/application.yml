@@ -20,6 +20,11 @@ spring:
             enable: true
 
 
+  redis:
+    host: localhost
+    port: 6379
+
+
 server:
   port: 8081
   servlet:
@@ -30,3 +35,5 @@ server:
 weather:
   api:
     key: 6c39c3644815cd20bacd61c9bd270889
+
+

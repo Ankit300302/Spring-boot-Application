@@ -6,6 +6,8 @@ import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public interface UserRepository extends MongoRepository<Users, ObjectId> {
 
@@ -14,6 +16,8 @@ public interface UserRepository extends MongoRepository<Users, ObjectId> {
     Users findByUsername(String username);
 
     void deleteByUsername(String name);
+
+
 }
 
 // journalEntry ==> JournalEntryRepo ==> JournalEntryService ==> JournalEntryControllerV2

@@ -1,5 +1,6 @@
 package net.engineeringdigest.journalApp.Service;
 
+import net.engineeringdigest.journalApp.APPcache.AppCache;
 import net.engineeringdigest.journalApp.apiRequest.WeatherResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,20 +22,26 @@ public class WeatherService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private AppCache appCache;
+
+    @Autowired
+    private RedisService redisService;
+
     public WeatherResponse getWeather(String city) {
-        try {
-            String encodedCity = URLEncoder.encode(city, StandardCharsets.UTF_8);
-            String finalURL = String.format(API_TEMPLATE, apikey, encodedCity);
-            System.out.println("Calling Weather API: " + finalURL);
-
-            ResponseEntity<WeatherResponse> response = restTemplate.exchange(
-                    finalURL, HttpMethod.GET, null, WeatherResponse.class);
-
-            return response.getBody();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+        WeatherResponse weatherResponse = redisService.get("weather_of_" + city, WeatherResponse.class);
+        if (weatherResponse != null) {
+            return weatherResponse;
+        } else {
+            String finalAPI = appCache.appCache.get(AppCache.keys.WEATHER_API.toString()).replace(Placeholders.CITY, city).replace(Placeholders.API_KEY, apiKey);
+            ResponseEntity<WeatherResponse> response = restTemplate.exchange(finalAPI, HttpMethod.POST, null, WeatherResponse.class);
+            WeatherResponse body = response.getBody();
+            if (body != null) {
+                redisService.set("weather_of_" + city, body, 300l);
+            }
+            return body;
         }
+
     }
 }
 
