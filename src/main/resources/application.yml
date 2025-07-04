@@ -21,8 +21,7 @@ spring:
 
 
   redis:
-    host: localhost
-    port: 6379
+    uri: redis://default:LJ0KTVt1x11amQgatekclizaFfbJLJGI@redis-12059.crce206.ap-south-1-1.ec2.redns.redis-cloud.com:12059
 
 
 server:
