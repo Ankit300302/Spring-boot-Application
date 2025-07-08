@@ -28,13 +28,16 @@ A clean, modular Spring Boot application demonstrating REST APIs, layered archit
 
 ## Features
 
-- ✅ RESTful API with Spring Web
-- ✅ Modular structure using layered architecture
-- ✅ JPA/Hibernate integration (H2/MySQL supported)
-- ✅ Spring Boot DevTools for hot reloading
-- ✅ Input validation and exception handling
-- ✅ Swagger for API documentation (optional)
-- ✅ Unit & integration tests with JUnit and Mockito
+- ✅ **MongoDB** integration for NoSQL database operations
+- ✅ **Redis** for caching and performance optimization
+- ✅ **Spring Security** for user authentication and role-based access control
+- ✅ **JWT-based Authentication** for stateless session management
+- ✅ Modular layered architecture (Controller-Service-Repository)
+- ✅ RESTful APIs using Spring Web
+- ✅ Input validation and global exception handling
+- ✅ Unit & integration testing with JUnit and Mockito
+- ✅ Environment-based configuration via `application.yml` profiles
+- ✅ Docker-ready for containerized deployment
 
 ---
 
@@ -52,12 +55,12 @@ Ensure you have the following installed:
 
 Clone the repository:
 
-```bash
+bash
 git clone https://github.com/Ankit300302/Spring-boot-Application.git
 cd Spring-boot-Application
 
 
-## Project Structure
+### Project Structure
 src/
 ├── main/
 │   ├── java/
