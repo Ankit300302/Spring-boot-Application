@@ -51,16 +51,8 @@ Ensure you have the following installed:
 - Maven or Gradle
 - Optional: Docker (for DB)
 
-### Installation
-
-Clone the repository:
-
-bash
-git clone https://github.com/Ankit300302/Spring-boot-Application.git
-cd Spring-boot-Application
-
-
 ### Project Structure
+``` bash
 src/
 ├── main/
 │   ├── java/
@@ -76,3 +68,20 @@ src/
 │       └── static/
 └── test/
     └── java/                     # Unit & Integration tests
+
+```
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Ankit300302/Spring-boot-Application.git
+cd Spring-boot-Application
+
+```
+
+
+
+
+
